@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class ShopsApplicationTests {
     //git test  哈哈
+    //狗子啊  你好你好
 
     @Test
     public void contextLoads() {
