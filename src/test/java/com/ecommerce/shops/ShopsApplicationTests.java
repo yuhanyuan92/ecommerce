@@ -8,6 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ShopsApplicationTests {
+    //git test  哈哈
 
     @Test
     public void contextLoads() {
