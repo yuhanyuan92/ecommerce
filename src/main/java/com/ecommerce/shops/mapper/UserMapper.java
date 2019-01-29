@@ -2,11 +2,9 @@ package com.ecommerce.shops.mapper;
 
 import com.ecommerce.shops.bean.User;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public interface UserMapper {
     int deleteByPrimaryKey(Integer id);
 

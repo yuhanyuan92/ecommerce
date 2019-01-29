@@ -5,6 +5,7 @@ import com.ecommerce.shops.bean.User;
 import com.ecommerce.shops.bean.resp.Response;
 import com.ecommerce.shops.bean.resp.Result;
 import com.ecommerce.shops.service.IUserService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -17,11 +18,12 @@ import java.util.Map;
 
 /**
  * @program: qlm-zxhy
- * @description: TODO
+ * @description: 用户模块
  * @author: hanyuan.yu
  * @create: 2019/1/7 15:17
  * @Version 1.0
  **/
+@Api(description = "用户模块")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -35,7 +37,7 @@ public class UserController {
     @RequestMapping(value = "/register", method = {RequestMethod.POST})
     public String register(@RequestBody User user) {
         Response<Object> response = new Response<>();
-        Map<String, Object> map = userService.register(user);
+        Map<String, Object> map = userService.insert(user);
         Result<Object> result = response.success(map);
         return JSON.toJSONString(result, true);
     }

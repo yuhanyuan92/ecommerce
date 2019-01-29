@@ -6,9 +6,9 @@ import com.ecommerce.shops.bean.resp.Response;
 import com.ecommerce.shops.bean.resp.Result;
 import com.ecommerce.shops.mapper.UserMapper;
 import com.ecommerce.shops.service.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +24,7 @@ import java.util.Map;
 @Service("userService")
 public class UserService implements IUserService, Serializable {
 
-    @Autowired
+    @Resource
     UserMapper userMapper;
 
     @Override
@@ -43,7 +43,7 @@ public class UserService implements IUserService, Serializable {
     }
 
     @Override
-    public Map<String, Object> register(User user) {
+    public Map<String, Object> insert(User user) {
         Map<String, Object> map = new HashMap<>();
         User source = new User();
         source.setAccount(user.getAccount());

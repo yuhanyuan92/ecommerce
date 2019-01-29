@@ -8,7 +8,7 @@ public interface IUserService {
 
     String findUser(Integer numPerPage, Integer currentPage);
 
-    Map<String, Object> register(User user);
+    Map<String, Object> insert(User user);
 
     Map<String, Object> login(String account, String password);
 }
