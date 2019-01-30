@@ -54,6 +54,7 @@ public class UserService implements IUserService, Serializable {
             map.put("code", "1001");
             userMapper.insert(user);
         }
+        int i = 1/0;
         return map;
     }
 

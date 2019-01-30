@@ -6,6 +6,7 @@ import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.interceptor.DefaultTransactionAttribute;
@@ -20,8 +21,9 @@ import org.springframework.transaction.interceptor.TransactionInterceptor;
  * @Version 1.0
  **/
 @Aspect
+@Configuration
 public class TransactionAdviceConfig {
-    private static final String AOP_POINTCUT_EXPRESSION = "execution(* com.ecommerce.shops.service.impl *.*(..))";
+    private static final String AOP_POINTCUT_EXPRESSION = "execution(* com.ecommerce.shops.service.impl.*.*(..))";
 
     @Autowired
     PlatformTransactionManager transactionManager;
