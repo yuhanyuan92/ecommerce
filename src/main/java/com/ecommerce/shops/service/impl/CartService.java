@@ -3,6 +3,7 @@ package com.ecommerce.shops.service.impl;
 import com.ecommerce.shops.bean.Cart;
 import com.ecommerce.shops.mapper.CartMapper;
 import com.ecommerce.shops.service.ICartService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -14,14 +15,20 @@ import java.util.List;
  * @create: 2019/1/29 10:47
  * @Version 1.0
  **/
+@Service
 public class CartService implements ICartService {
     @Resource
     CartMapper cartMapper;
 
     @Override
-    public String addToCart(Cart cart) {
-
-        return null;
+    public void addToCart(Cart cart) {
+        Cart dest = findByUser(cart);
+        if (dest != null) {
+            dest.setCount(dest.getCount() + cart.getCount());
+            cartMapper.updateByPrimaryKey(dest);
+        } else {
+            cartMapper.insertSelective(cart);
+        }
     }
 
     @Override

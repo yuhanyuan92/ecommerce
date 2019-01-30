@@ -10,7 +10,7 @@ public interface ICartService {
      * @param cart
      * @return
      */
-    String addToCart(Cart cart);
+    void addToCart(Cart cart);
 
     /**
      * 获取购物车信息
