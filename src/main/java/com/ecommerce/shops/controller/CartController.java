@@ -39,8 +39,12 @@ public class CartController {
         Response<Object> response = new Response<>();
         Result<Object> result = null;
         try {
-            cartService.addToCart(cart);
-            result = response.success(null);
+            if(cart.getUserId() == null || "".equals(cart.getUserId())){
+                result = response.fail("用户未登录");
+            }else{
+                cartService.addToCart(cart);
+                result = response.success(null);
+            }
         } catch (Exception e) {
             result = response.fail("添加购物车失败");
             e.printStackTrace();

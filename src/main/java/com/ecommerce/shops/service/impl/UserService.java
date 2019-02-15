@@ -52,9 +52,9 @@ public class UserService implements IUserService, Serializable {
             map.put("code", "1002");
         } else {
             map.put("code", "1001");
+            map.put("userInfo", user);
             userMapper.insert(user);
         }
-        int i = 1/0;
         return map;
     }
 
