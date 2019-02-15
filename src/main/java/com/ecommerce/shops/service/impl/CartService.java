@@ -1,6 +1,10 @@
 package com.ecommerce.shops.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.ecommerce.shops.bean.Cart;
+import com.ecommerce.shops.bean.User;
+import com.ecommerce.shops.bean.resp.Response;
+import com.ecommerce.shops.bean.resp.Result;
 import com.ecommerce.shops.mapper.CartMapper;
 import com.ecommerce.shops.service.ICartService;
 import org.springframework.stereotype.Service;
@@ -49,5 +53,20 @@ public class CartService implements ICartService {
     @Override
     public void deleteByPrimaryKey(Integer id) {
         cartMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public String findCart(Integer userId, Integer numPerPage, Integer currentPage) {
+        Response<List<Cart>> response = new Response<>();
+        Result<List<Cart>> result = null;
+        try {
+            int start = (currentPage - 1) * numPerPage;
+            List<Cart> list = cartMapper.getCartList(userId, start, numPerPage);
+            result = response.success(list);
+        } catch (Exception e) {
+            result = response.fail();
+            e.printStackTrace();
+        }
+        return JSON.toJSONString(result, true);
     }
 }

@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,6 +51,17 @@ public class CartController {
             e.printStackTrace();
         }
         return JSON.toJSONString(result, true);
+    }
+
+    @ApiOperation(value = "获取购物车列表接口", notes = "获取购物车列表")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userId", value = "用户id", paramType = "query", required = true, dataType = "Integer"),
+            @ApiImplicitParam(name = "numPerPage", value = "每页记录数", paramType = "query", required = true, dataType = "Integer"),
+            @ApiImplicitParam(name = "currentPage", value = "当前页码", paramType = "query", required = true, dataType = "Integer")
+    })
+    @RequestMapping(value = "/list", method = {RequestMethod.GET, RequestMethod.POST})
+    public String getCartList(Integer userId, Integer numPerPage, Integer currentPage) {
+        return cartService.findCart(userId, numPerPage, currentPage);
     }
 
 }

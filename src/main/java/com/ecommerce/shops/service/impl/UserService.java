@@ -51,9 +51,9 @@ public class UserService implements IUserService, Serializable {
         if (oriUser != null) {
             map.put("code", "1002");
         } else {
+            userMapper.insert(user);
             map.put("code", "1001");
             map.put("userInfo", user);
-            userMapper.insert(user);
         }
         return map;
     }

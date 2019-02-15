@@ -37,4 +37,13 @@ public interface ICartService {
      * @param id
      */
     void deleteByPrimaryKey(Integer id);
+
+    /**
+     * 获取用户购物车列表
+     * @param userId
+     * @param numPerPage
+     * @param currentPage
+     * @return
+     */
+    String findCart(Integer userId, Integer numPerPage, Integer currentPage);
 }
