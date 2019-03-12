@@ -2,7 +2,6 @@ package com.ecommerce.shops.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.ecommerce.shops.bean.Cart;
-import com.ecommerce.shops.bean.User;
 import com.ecommerce.shops.bean.resp.Response;
 import com.ecommerce.shops.bean.resp.Result;
 import com.ecommerce.shops.mapper.CartMapper;

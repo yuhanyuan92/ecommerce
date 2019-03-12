@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ecommerce.shops.mapper.ZbTongjiMapper" >
+  <resultMap id="BaseResultMap" type="com.ecommerce.shops.bean.ZbTongji" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="cid" property="cid" jdbcType="VARCHAR" />
+    <result column="dengji" property="dengji" jdbcType="INTEGER" />
+    <result column="intime" property="intime" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, uid, cid, dengji, intime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from zb_tongji
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="getTotalCount" resultType="java.lang.Integer">
+    SELECT COUNT(1) FROM zb_tongji
+  </select>
+  <select id="findPageData" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from t_goods limit #{start,jdbcType=INTEGER},#{limit,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from zb_tongji
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ecommerce.shops.bean.ZbTongji" >
+    insert into zb_tongji (id, uid, cid, 
+      dengji, intime)
+    values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{cid,jdbcType=VARCHAR}, 
+      #{dengji,jdbcType=INTEGER}, #{intime,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ecommerce.shops.bean.ZbTongji" >
+    insert into zb_tongji
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="cid != null" >
+        cid,
+      </if>
+      <if test="dengji != null" >
+        dengji,
+      </if>
+      <if test="intime != null" >
+        intime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null" >
+        #{cid,jdbcType=VARCHAR},
+      </if>
+      <if test="dengji != null" >
+        #{dengji,jdbcType=INTEGER},
+      </if>
+      <if test="intime != null" >
+        #{intime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ecommerce.shops.bean.ZbTongji" >
+    update zb_tongji
+    <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="cid != null" >
+        cid = #{cid,jdbcType=VARCHAR},
+      </if>
+      <if test="dengji != null" >
+        dengji = #{dengji,jdbcType=INTEGER},
+      </if>
+      <if test="intime != null" >
+        intime = #{intime,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ecommerce.shops.bean.ZbTongji" >
+    update zb_tongji
+    set uid = #{uid,jdbcType=INTEGER},
+      cid = #{cid,jdbcType=VARCHAR},
+      dengji = #{dengji,jdbcType=INTEGER},
+      intime = #{intime,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
