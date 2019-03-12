@@ -50,4 +50,15 @@ public class ZbTongji {
     public void setIntime(Integer intime) {
         this.intime = intime;
     }
+
+    @Override
+    public String toString() {
+        return "ZbTongji{" +
+                "id=" + id +
+                ", uid=" + uid +
+                ", cid='" + cid + '\'' +
+                ", dengji=" + dengji +
+                ", intime=" + intime +
+                '}';
+    }
 }

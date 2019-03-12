@@ -26,7 +26,7 @@ public class TongjiController {
     public String getAllZbData(){
         List<ZbTongji> list = batchService.getVariableData();
         int size = list.size();
-        System.out.println("totalCount:" + size + list.get(size - 1));
+        System.out.println("totalCount:" + size + list.get(size - 1).toString());
         return "success";
     }
 

@@ -50,7 +50,7 @@ public class BatchService implements IBatchService {
             List<Future<List<ZbTongji>>> futures = executorService.invokeAll(tasks);
             // 处理线程返回结果
             if (futures != null && !futures.isEmpty()) {
-                futures.stream().forEach(future->{
+                futures.stream().forEach(future -> {
                     try {
                         list.addAll(future.get());
                     } catch (InterruptedException e) {
@@ -62,7 +62,7 @@ public class BatchService implements IBatchService {
             }
             executorService.shutdown();  // 关闭线程池
             long end = System.currentTimeMillis();
-            System.out.println("用时"+(start-end));
+            System.out.println("用时" + (end - start));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
