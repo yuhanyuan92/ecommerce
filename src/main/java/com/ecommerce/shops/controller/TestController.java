@@ -4,10 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.ecommerce.shops.bean.resp.Result;
 import com.ecommerce.shops.bean.resp.SuccessCode;
 import com.ecommerce.shops.filter.NoRepeatSubmit;
-import com.ecommerce.shops.mapper.ZbTongjiMapper;
-import com.ecommerce.shops.service.IBatchService;
-import com.ecommerce.shops.service.impl.BatchService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,8 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/test")
 public class TestController {
-    @Autowired
-    IBatchService batchService;
 
     @RequestMapping(value = "/submit", method = RequestMethod.GET)
     @NoRepeatSubmit

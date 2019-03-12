@@ -2,7 +2,6 @@ package com.ecommerce.shops.task;
 
 import com.ecommerce.shops.bean.ZbTongji;
 import com.ecommerce.shops.service.ITongjiService;
-import com.ecommerce.shops.service.impl.TongjiService;
 
 import java.util.List;
 import java.util.concurrent.Callable;

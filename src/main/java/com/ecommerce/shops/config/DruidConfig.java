@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @program: qlm-zxhy
- * @description: TODO
+ * @description: druid连接池监控
  * @author: hanyuan.yu
  * @create: 2019/1/10 14:17
  * @Version 1.0

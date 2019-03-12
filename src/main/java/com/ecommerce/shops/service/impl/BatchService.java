@@ -23,6 +23,7 @@ public class BatchService implements IBatchService {
     @Autowired
     ITongjiService tongjiService;
 
+    @Override
     public List<ZbTongji> getVariableData() {
         long start = System.currentTimeMillis();
         //返回结果

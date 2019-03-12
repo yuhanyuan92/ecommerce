@@ -6,7 +6,7 @@ import java.util.concurrent.*;
 
 /**
  * @program: qlm-zxhy
- * @description: TODO
+ * @description: 测试类
  * @author: hanyuan.yu
  * @create: 2019/3/5 21:02
  * @Version 1.0
