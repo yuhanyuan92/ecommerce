@@ -17,12 +17,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     //https://www.cnblogs.com/mujingyu/p/10701026.html
+    //https://www.yiibai.com/spring-security/secure-spring-rest-api-using-basic-authentication.html
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/**")
-                .fullyAuthenticated()
-                .and()
-                .formLogin();
+//        http.authorizeRequests()
+//                .antMatchers("/**")
+//                .fullyAuthenticated()
+//                .and()
+//                .formLogin();
     }
 }
